@@ -68,51 +68,7 @@ class Sidebar extends StatelessWidget {
                   const SizedBox(height: 24),
                   const Divider(color: Colors.white70),
                   const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.twitter,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => launchUrl(
-                          Uri.parse('https://twitter.com/strawhatxyz'),
-                          mode: LaunchMode.externalApplication,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.github,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => launchUrl(
-                          Uri.parse('https://github.com/Strawhatxyz/'),
-                          mode: LaunchMode.externalApplication,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.discord,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => launchUrl(
-                          Uri.parse('https://twitter.com/strawhatxyz'),
-                          mode: LaunchMode.externalApplication,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.envelope,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => launchUrl(
-                          Uri.parse('https://twitter.com/strawhatxyz'),
-                          mode: LaunchMode.externalApplication,
-                        ),
-                      ),
-                    ],
-                  )
+                  const _buildSocialWidgets()
                 ],
               ),
             ),
@@ -220,5 +176,60 @@ class Sidebar extends StatelessWidget {
         context.read<ScreenProvider>().changeScreen(Screens.home);
         break;
     }
+  }
+}
+
+class _buildSocialWidgets extends StatelessWidget {
+  const _buildSocialWidgets({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        IconButton(
+          icon: const FaIcon(
+            FontAwesomeIcons.twitter,
+            color: Colors.white,
+          ),
+          onPressed: () => launchUrl(
+            Uri.parse('https://twitter.com/strawhatxyz'),
+            mode: LaunchMode.externalApplication,
+          ),
+        ),
+        IconButton(
+          icon: const FaIcon(
+            FontAwesomeIcons.github,
+            color: Colors.white,
+          ),
+          onPressed: () => launchUrl(
+            Uri.parse('https://github.com/Strawhatxyz/'),
+            mode: LaunchMode.externalApplication,
+          ),
+        ),
+        IconButton(
+          icon: const FaIcon(
+            FontAwesomeIcons.globe,
+            color: Colors.white,
+          ),
+          onPressed: () => launchUrl(
+            Uri.parse('https://strawhat.xyz'),
+            mode: LaunchMode.externalApplication,
+          ),
+        ),
+        IconButton(
+          icon: const FaIcon(
+            FontAwesomeIcons.envelope,
+            color: Colors.white,
+          ),
+          onPressed: () => launchUrl(
+            Uri.parse('mailto:hello@strawhat.xyz'),
+            mode: LaunchMode.externalApplication,
+          ),
+        ),
+      ],
+    );
   }
 }
