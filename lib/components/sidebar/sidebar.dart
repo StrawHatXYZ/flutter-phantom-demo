@@ -168,7 +168,7 @@ class Sidebar extends StatelessWidget {
         context.read<ScreenProvider>().changeScreen(Screens.sign);
         break;
       case 4:
-        Uri url = phantomConnectInstance.generateDisconectUri(
+        Uri url = phantomConnectInstance.generateDisconnectUri(
             redirect: "/disconnect");
         await launchUrl(url, mode: LaunchMode.externalApplication);
         break;
